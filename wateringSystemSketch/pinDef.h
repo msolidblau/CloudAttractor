@@ -1,14 +1,17 @@
 #include "Arduino.h"
-#include "DHT.h"
-#include "DHT_U.h"
+#include <DHT.h>
+#include <DHT_U.h>
 #include "thingProperties.h"
-#include "matixdev.h"
+
 
 //set relay pins
 const int zone1Pin = 2;
 const int zone2Pin = 4;
 const int zone3Pin = 7;
 const int zone4Pin = 8;
+
+
+const int devled = 13;
 
 //setup DHT
 #define DHTPIN 12
@@ -20,3 +23,4 @@ float heatIndex;
 int maxHum = 70;
 
 unsigned long startTime;
+unsigned long elapsedTime;
