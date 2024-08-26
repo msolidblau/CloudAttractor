@@ -2,6 +2,9 @@
 #include <DHT.h>
 #include <DHT_U.h>
 #include "thingProperties.h"
+#include "matrix.h"
+
+
 
 
 //set relay pins

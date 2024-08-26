@@ -1,6 +1,5 @@
-#include "pinDef.h"
-#include "Arduino_LED_Matrix.h"
 
+/*
 
 const uint32_t zone4[][4] = {
 	{
@@ -50,3 +49,5 @@ const uint32_t off[][4] = {
 		66
 	}
 };
+
+*/
