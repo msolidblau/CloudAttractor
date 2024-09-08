@@ -26,3 +26,6 @@ int maxHum = 70;
 //time variables for automatic mode
 unsigned long startTime;
 unsigned long elapsedTime;
+
+
+// hello this is a test yes 
