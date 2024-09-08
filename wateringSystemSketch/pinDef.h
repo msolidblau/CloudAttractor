@@ -1,5 +1,4 @@
 #include "Arduino.h"
-
 #include "thingProperties.h"
 #include "matrix.h"
 
@@ -24,5 +23,6 @@ float heatIndex;
 // Maximum humidity variable
 int maxHum = 70;
 
+//time variables for automatic mode
 unsigned long startTime;
 unsigned long elapsedTime;
