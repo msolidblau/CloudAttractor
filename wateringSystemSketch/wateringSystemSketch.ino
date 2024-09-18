@@ -180,62 +180,7 @@ void startTimer() {
 
 void autoCheck() {
   if (uniSchedule.isActive()) {
-    if (relay1Setting == false && relay2Setting == false && relay3Setting == false && relay4Setting == false && waterLock == false) {   //if no relays are active, 1 turns on
-
-      
-      relay1Setting = true;
-      relay1StartTime = millis();
-      waterLock = true;
-
-     
-    } else if (relay1Setting == true && relay2Setting == false && relay3Setting == false && relay4Setting == false && waterLock == false) {    //if relay 1 is active, 1 turns on
-
-      waterlock = true;
-      relay1Setting = false;
-      delay(delayTime);
-      relay2Setting = true;
-      relay2StartTime = millis();
-
-      
-    } else if (relay1Setting == false && relay2Setting == true && relay3Setting == false && relay4Setting == false && waterLock == false) {
-
-      waterlock = true;
-      relay2Setting = false;
-      delay(delayTime);
-      relay3Setting = true;
-      relay3StartTime = millis();
-
-      
-    } else if (relay1Setting == false && relay2Setting == false && relay3Setting == true && relay4Setting == false && waterLock == false) {
-
-      waterlock = true;
-      relay3Setting = false;
-      delay(delayTime);
-      relay4Setting = true;
-      relay4StartTime = millis();
-
-      
-    }
-  
-
-    // Check if any relay has finished its time
-    if (relay1Active && millis() - relayStartTime >= zone1Time) {
-      relay1Setting = false;
-      waterLock = false;
-    }
-    if (relay2Active && millis() - relayStartTime >= zone2Time) {
-      relay2Setting = false;
-      waterLock = false;
-    }
-    if (relay3Active && millis() - relayStartTime >= zone3Time) {
-      relay3Setting = false;
-      waterLock = false;
-    }
-    if (relay4Active && millis() - relayStartTime >= zone4Time) {
-      relay4Setting = false;
-      Serial.println("all done");
-      waterLock = false;
-    }
+    
   }
 }
 
