@@ -23,11 +23,11 @@ float heatIndex;
 
 // Maximum humidity variable
 int maxHum = 70;
+int cycles = 0;
 
+unsinged long startTime;
 
-unsigned long relay1StartTime;
-unsigned long relay2StartTime;
-unsigned long relay3StartTime;
-unsigned long relay4StartTime;
-bool waterLock;
-int delayTime = 2000;
+unsinged long zone1Time;
+unsinged long zone2Time;
+unsinged long zone3Time;
+unsinged long zone4Time;

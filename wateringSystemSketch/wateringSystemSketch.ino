@@ -98,8 +98,6 @@ const uint32_t off[] = {
 
 
 
-
-
 void matrixzone1() {
   matrix.loadFrame(zone1);
 }
@@ -170,18 +168,62 @@ void checkZone4() {
 }
 
 
-void startTimer() {
-  startTime = millis();  // Update the global startTime variable
-}
-
-
-
-
 
 void autoCheck() {
-  if (uniSchedule.isActive()) {
+  if(uniSchedule.isActive()){
+    if(relay1Setting == false){
+      relay1Setting = true;
+      startTime = millis();
+      checkZone1();
+    }
+    delay(50);
+    if(relay1Setting == true && millis() - startTime >= zone1Time){
+      relay2Setting == true;
+      startTime == millis();
+      checkZone2();
+    }
+    delay(50);
+    if(relay2Setting == true && millis() - startTime >= zone2Time){
+      relay3Setting == true;
+      startTime == millis();
+      checkZone3();
+    }
+    delay(50);
+    if(relay3Setting == true && millis() - startTime >= zone3Time){
+      relay4Setting == true;
+      startTime == millis();
+      checkZone4();
+    }
+    delay(50);
+    if(relay4Setting == true && millis() - startTime >= zone4Time){
+      cycles++;
+      Serial.println("cycle complete");
+      Serial.println("log: ");
+      Serial.print(cycles);
+      relay1Setting = false;
+      relay2Setting = false;
+      relay3Setting = false;
+      relay4Setting = false;
+    }
     
+
+
+
+
+
+
+
+
+
+
+
+  }else{
+    relay1Setting = false;
+    relay2Setting = false;
+    relay3Setting = false;
+    relay4Setting = false;
   }
+  
 }
 
 
