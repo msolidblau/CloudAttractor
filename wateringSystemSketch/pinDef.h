@@ -25,9 +25,6 @@ float heatIndex;
 int maxHum = 70;
 int cycles = 0;
 
-unsinged long startTime;
+unsigned long startTime;
 
-unsinged long zone1Time;
-unsinged long zone2Time;
-unsinged long zone3Time;
-unsinged long zone4Time;
+
