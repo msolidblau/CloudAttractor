@@ -98,8 +98,6 @@ const uint32_t off[] = {
 
 
 
-
-
 void matrixzone1() {
   matrix.loadFrame(zone1);
 }
@@ -170,18 +168,79 @@ void checkZone4() {
 }
 
 
-void startTimer() {
-  startTime = millis();  // Update the global startTime variable
-}
-
-
-
-
 
 void autoCheck() {
-  if (uniSchedule.isActive()) {
+  if(uniSchedule.isActive()){
     
+    if(relay1Setting == false && relay2Setting == false && relay3Setting == false && relay4Setting == false){
+      relay1Setting = true;
+      startTime = millis();
+      checkZone1();
+    }
+    
+    delay(1500);
+    
+    if(relay1Setting == true && millis() - startTime >= (zone1Time * 1000)){
+      relay1Setting = false;
+      relay2Setting = true;
+      startTime = millis();
+      checkZone1();
+      checkZone2();
+      Serial.println("zone 2 on");
+    }
+    
+    delay(1500);
+    
+    if(relay2Setting == true && millis() - startTime >= (zone2Time * 1000)){
+      relay2Setting = false;
+      relay3Setting = true;
+      startTime = millis();
+      checkZone2();
+      checkZone3();
+      Serial.println("zone 3 on");
+    }
+    
+    delay(1500);
+    
+    if(relay3Setting == true && millis() - startTime >= (zone3Time * 1000)){
+      relay3Setting = false;
+      relay4Setting = true;
+      startTime = millis();
+      checkZone3();
+      checkZone4();
+      Serial.println("zone 4 on");
+    }
+    
+    delay(1500);
+    
+    if(relay4Setting == true && millis() - startTime >= (zone4Time * 1000)){
+      cycles++;
+      Serial.println("cycle complete");
+      Serial.println("log: ");
+      Serial.print(cycles);
+      relay1Setting = false;
+      relay2Setting = false;
+      relay3Setting = false;
+      relay4Setting = false;
+      checkZone1();
+      checkZone2();
+      checkZone3();
+      checkZone4();
+      delay(300000);
+    }
+
+
+  }else{
+    relay1Setting = false;
+    relay2Setting = false;
+    relay3Setting = false;
+    relay4Setting = false;
+    checkZone1();
+    checkZone2();
+    checkZone3();
+    checkZone4();
   }
+  
 }
 
 
@@ -216,6 +275,10 @@ void loop() {
       relay2Setting = false;
       relay3Setting = false;
       relay4Setting = false;
+      checkZone1();
+      checkZone2();
+      checkZone3();
+      checkZone4();
     }
 
     //automatic
