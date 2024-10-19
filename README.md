@@ -1,6 +1,6 @@
 # CloudAttractor
-
-A system to connect the Orbit WT1-41-078R to the cloud using an Arduino Uno R4, a DHT22 sensor and 4 220VAC relays. 
+## Description
+A program to connect the Orbit WT1-41-078R to the arduino cloud using an Arduino Uno R4, a DHT22 sensor and 4 220VAC relays. 
 
 
 ## Warranty
@@ -39,4 +39,4 @@ SOFTWARE.
 
 ## Contact
 
-You can contact the developers at m@solidBlau.com with any feed back or questions.
+You can contact the developers at m@solidBlau.com with any feedback or questions.
